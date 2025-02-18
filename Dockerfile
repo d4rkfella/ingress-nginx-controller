@@ -22,4 +22,4 @@ RUN apk add --upgrade --update --no-cache \
     apk del --no-cache --purge -r wolfi-keys busybox apk-tools
 
 ENTRYPOINT [ "/nginx-ingress-controller" ]
-CMD [ "/usr/bin/dumb-init" "---" ]
+CMD [ "/usr/bin/dumb-init", "--" ]
