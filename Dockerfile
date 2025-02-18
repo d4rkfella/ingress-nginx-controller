@@ -18,10 +18,10 @@ RUN apk add --upgrade --update --no-cache \
         icu-data-full \
         libfontconfig1 \
         msgpack-cxx && \
-    mkdir -p /etc/ingress-controller/ssl && \
     addgroup -S -g 82 www-data && \
     adduser -S -D -H -u 101 -h /usr/local/nginx \
     -s /sbin/nologin -G www-data -g www-data www-data && \
+    chown www-data:www-data /etc/ingress-controller && chmod 700 /etc/ingress-controller && \
     apk del --no-cache --purge -r wolfi-keys busybox apk-tools
 
 ENTRYPOINT [ "/nginx-ingress-controller" ]
