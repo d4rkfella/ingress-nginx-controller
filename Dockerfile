@@ -21,7 +21,7 @@ RUN apk add --upgrade --update --no-cache \
     mkdir -p /etc/ingress-controller/ssl && \
     addgroup -S -g 82 www-data && \
     adduser -S -D -H -u 101 -h /usr/local/nginx \
-    -s /sbin/nologin -G www-data -g www-data www-data
+    -s /sbin/nologin -G www-data -g www-data www-data && \
     apk del --no-cache --purge -r wolfi-keys busybox apk-tools
 
 ENTRYPOINT [ "/nginx-ingress-controller" ]
