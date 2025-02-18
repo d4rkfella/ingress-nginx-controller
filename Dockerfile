@@ -18,6 +18,7 @@ RUN apk add --upgrade --update --no-cache \
         icu-data-full \
         libfontconfig1 \
         msgpack-cxx && \
+    mkdir -p /etc/ingress-controller/ssl && \
     apk del --no-cache --purge -r wolfi-keys busybox apk-tools
 
 ENTRYPOINT [ "/nginx-ingress-controller" ]
