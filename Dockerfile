@@ -21,9 +21,9 @@ RUN apk add --upgrade --update --no-cache \
     addgroup -S -g 82 www-data && \
     adduser -S -D -H -u 101 -h /usr/local/nginx \
     -s /sbin/nologin -G www-data -g www-data www-data && \
-    mkdir -p /etc/ingress-controller/auth /etc/ingress-controller/ssl /etc/ingress-controller/geoip /etc/ingress-controller/telemetry && \ 
-    chown www-data:www-data /etc/ingress-controller/auth /etc/ingress-controller/ssl /etc/ingress-controller/geoip /etc/ingress-controller/telemetry && \
-    chmod 755 /etc/ingress-controller/auth /etc/ingress-controller/ssl /etc/ingress-controller/geoip /etc/ingress-controller/telemetry && \
+    mkdir -p /tmp/nginx /etc/ingress-controller/auth /etc/ingress-controller/ssl /etc/ingress-controller/geoip /etc/ingress-controller/telemetry && \ 
+    chown www-data:www-data /etc/ingress-controller/auth /etc/ingress-controller/ssl /etc/ingress-controller/geoip /etc/ingress-controller/telemetry /tmp/nginx && \
+    chmod 755 /etc/ingress-controller/auth /etc/ingress-controller/ssl /etc/ingress-controller/geoip /etc/ingress-controller/telemetry /tmp/nginx && \
     apk del --no-cache --purge -r wolfi-keys busybox apk-tools
 
 ENTRYPOINT [ "/nginx-ingress-controller" ]
