@@ -21,5 +21,5 @@ RUN apk add --upgrade --update --no-cache \
     mkdir -p /etc/ingress-controller/ssl && \
     apk del --no-cache --purge -r wolfi-keys busybox apk-tools
 
-ENTRYPOINT [ "/usr/bin/dumb-init", "--" ]
-CMD [ "/nginx-ingress-controller" ]
+ENTRYPOINT [ "/nginx-ingress-controller" ]
+CMD [ "/usr/bin/dumb-init", "--" ]
